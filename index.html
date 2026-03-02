@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Samantha's Kirby A-Frame Space</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+
+      <!-- sky for the background -->
+      <a-sky color="#87CEEB"></a-sky>
+
+      <!-- ground -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#90EE90"></a-plane>
+
+      <!-- my kirby avatar -->
+      <a-asset-item id="kirby" src="kirby.glb"></a-asset-item>
+      <a-entity gltf-model="#kirby" position="0 0 -3" scale="1 1 1"></a-entity>
+
+      <!-- light -->
+      <a-light type="ambient" intensity="1"></a-light>
+      <a-light type="directional" position="2 4 3" intensity="1"></a-light>
+
+      <!-- camera for navigation -->
+      <a-camera position="0 1.6 0" look-controls wasd-controls></a-camera>
+
+    </a-scene>
+  </body>
+</html>
