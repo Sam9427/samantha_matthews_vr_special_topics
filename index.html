@@ -1,28 +1,32 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title> Samantha's Kirby A-Frame Space</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene color-space="sRGB" renderer="colorManagement: true; physicallyCorrectLights: true;">
 
-      <!-- sky for the background -->
+      <!-- Assets -->
+      <a-assets>
+        <a-asset-item id="kirby" src="./kirby.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- Sky -->
       <a-sky color="#87CEEB"></a-sky>
 
-      <!-- ground -->
-      <a-plane position="0 0 0" rotation="-90 0 0" width="30" height="30" color="#90EE90"></a-plane>
+      <!-- Ground -->
+      <a-plane rotation="-90 0 0" height="50" width="50" color="#90EE90"></a-plane>
 
-      <!-- my kirby avatar -->
-      <a-asset-item id="kirby" src="kirby.glb"></a-asset-item>
-      <a-entity gltf-model="#kirby" position="0 0 -3" scale="1 1 1"></a-entity>
+      <!-- Kirby model -->
+      <a-gltf-model
+        src="#kirby"
+        position="0 0 -3"
+        rotation="0 0 0"
+        scale="1 1 1">
+      </a-gltf-model>
 
-      <!-- light -->
-      <a-light type="ambient" intensity="1"></a-light>
-      <a-light type="directional" position="2 4 3" intensity="1"></a-light>
-
-      <!-- camera for navigation -->
-      <a-camera position="0 1.6 0" look-controls wasd-controls></a-camera>
+      <!-- Lights -->
+      <a-light type="directional" intensity="2.5" position="0 2 3"></a-light>
+      <a-light type="ambient" intensity="0.5"></a-light>
 
     </a-scene>
   </body>
